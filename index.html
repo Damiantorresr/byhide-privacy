@@ -13,34 +13,47 @@
   hr{border:none;border-top:1px solid #ddd;margin:50px 0}
   a{color:#5b3ba8}
   strong{color:#1a1a2e}
+  code{background:#eee;padding:1px 6px;border-radius:3px;font-size:.9em}
 </style>
 </head>
 <body>
 
 <h1>Privacy Policy — Byhide</h1>
-<div class="updated">Last updated: June 1, 2026</div>
+<div class="updated">Last updated: June 21, 2026</div>
 
 <h2>Introduction</h2>
 <p>Byhide ("we", "our", or "the App") is an internet radio application with on-device spatial sound, developed by Laboratorios Zorion in Ecuador. This Privacy Policy explains how we handle information related to your use of the App.</p>
 
 <div class="summary">
-<strong>Byhide does not collect, store, or transmit any personal data.</strong> The App has no servers of its own, no analytics, no tracking, and no data sharing with third parties.
+<strong>Byhide does not collect, store, or transmit any personal data to our own servers.</strong> The App has no servers of its own, no analytics, no tracking, and no data sharing for advertising purposes.
 </div>
 
 <h2>Information We Do Not Collect</h2>
 <p>We do <strong>not</strong> collect, request, or store any personal information. We have no user accounts, no registration, and no login. We do not know who you are.</p>
 
 <h2>Data Stored on Your Device</h2>
-<p>The App stores the following <strong>locally on your device only</strong>, never on any server:</p>
+<p>The App stores the following <strong>locally on your device only</strong>, never on any server we control:</p>
 <ul>
 <li><strong>Favorites</strong> — radio stations you mark as favorite.</li>
-<li><strong>Recordings</strong> — any audio you choose to record within the App.</li>
+<li><strong>Recordings</strong> — see "Recording Functionality" below for details.</li>
 <li><strong>Settings</strong> — your listening mode, presets, and audio preferences.</li>
+<li><strong>Catalog cache</strong> — a temporary cache of the available radio station list (refreshed weekly).</li>
 </ul>
 <p>This information remains on your device and is removed when you uninstall the App.</p>
 
+<h2>Recording Functionality</h2>
+<p>When you press the <strong>RECORD</strong> button inside the App (a premium feature), Byhide captures the audio of the radio stream you are currently listening to. The captured audio is saved as a WAV file in your device's <code>Music/Byhide/</code> folder.</p>
+<p>Byhide does <strong>NOT</strong>:</p>
+<ul>
+<li>Access your device's microphone.</li>
+<li>Record your voice or ambient sound.</li>
+<li>Upload any recording to any server.</li>
+<li>Share recordings with third parties.</li>
+</ul>
+<p>Recordings are entirely yours. They live only on your device until you delete them.</p>
+
 <h2>Radio Streams (Third-Party Content)</h2>
-<p>Byhide plays internet radio stations sourced through a free, public radio directory API. When you play a station, your device connects directly to that station's stream provider to receive the audio. Byhide does not control, host, or own these streams.</p>
+<p>Byhide plays internet radio stations sourced through free, public radio directory APIs. When you play a station, your device connects directly to that station's stream provider to receive the audio. Byhide does not control, host, or own these streams.</p>
 <p>We do not send any personal information to these providers. Your device simply requests the audio stream, as any internet radio player would. The availability and content of each station are managed by the respective broadcasters, not by Byhide.</p>
 
 <h2>In-App Purchases</h2>
@@ -55,27 +68,40 @@
 <p>For details on how Google handles payment data, see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
 
 <h2>Permissions</h2>
-<p>The App requests the <code>INTERNET</code> permission to stream radio stations, and the <code>BILLING</code> permission to process the optional premium purchase through Google Play. The App does not request access to your contacts, location, camera, microphone (beyond your explicit recording action), or any other personal data.</p>
+<p>Byhide requests the following Android permissions for legitimate functionality:</p>
+<ul>
+<li><code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> — to stream radio stations and detect connectivity.</li>
+<li><code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> — to play audio in the background reliably.</li>
+<li><code>WAKE_LOCK</code> — to keep the radio playing when the screen is off.</li>
+<li><code>POST_NOTIFICATIONS</code> (Android 13+) — to show playback controls in the notification bar.</li>
+<li><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code> — optional, to prevent the system from interrupting playback.</li>
+<li><code>WRITE_EXTERNAL_STORAGE</code> (Android 9 and earlier only) — to save recordings to your Music folder.</li>
+<li>Google Play Billing — for the optional premium purchase.</li>
+</ul>
+<p>Byhide does <strong>NOT</strong> request access to your microphone, contacts, precise location, camera, photos, SMS, call logs, or any other personal data.</p>
 
 <h2>Children's Privacy</h2>
 <p>The App is not specifically directed at children under 13. We do not knowingly collect any data from any user, including children. As stated, we do not collect any information at all.</p>
 
 <h2>Third-Party Services</h2>
-<p>Byhide integrates only the following third-party services:</p>
+<p>Byhide connects to the following third-party services for its core functionality:</p>
 <ul>
-<li><strong>A free public radio directory API</strong> — to provide the list of available radio stations.</li>
+<li><strong>Radio Browser API</strong> (<code>radio-browser.info</code>) — public, free directory of radio stations. Your device sends generic search queries (genre, country, station name) to fetch the station catalog. No personal information is included in these requests.</li>
+<li><strong>Icecast Directory</strong> (<code>dir.xiph.org</code>) — public directory used to supplement the catalog with additional stations.</li>
+<li><strong>IP Geolocation</strong> (<code>ip-api.com</code>) — used <em>once per week</em> at app startup to detect <strong>your country only</strong> (not your precise location) so we can show you local radio stations. Your IP address is sent to this service to perform the lookup, but Byhide does <strong>NOT</strong> store, log, or transmit your IP address to any other party. For details, see <a href="https://ip-api.com/docs/legal">ip-api.com privacy policy</a>.</li>
+<li><strong>Direct connection to each radio station's stream provider</strong> — when you choose to play a station, your device connects directly to that broadcaster's server. Byhide acts only as the player. Each broadcaster has its own privacy practices, over which we have no control.</li>
 <li><strong>Google Play Billing</strong> — for processing the optional premium purchase. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
 </ul>
-<p>There are no analytics services (Google Analytics, Firebase, Mixpanel, etc.), no crash reporting (Crashlytics, Sentry, etc.), and no advertising networks.</p>
+<p>Byhide does <strong>NOT</strong> integrate any analytics services (Google Analytics, Firebase, Mixpanel, etc.), no crash reporting (Crashlytics, Sentry, etc.), and no advertising networks.</p>
 
 <h2>Data Security</h2>
-<p>Since we do not collect or transmit any personal data, there is no data to secure on our end. The local data stored on your device is protected by your device's standard security mechanisms.</p>
+<p>Since we do not collect or transmit any personal data to our own servers, there is no data to secure on our end. The local data stored on your device is protected by your device's standard security mechanisms.</p>
 
 <h2>Changes to This Policy</h2>
 <p>We may update this Privacy Policy occasionally. Changes will be reflected in the "Last updated" date at the top of this document. Significant changes will be communicated through app updates.</p>
 
 <h2>Your Rights</h2>
-<p>Since we do not collect personal data, there is no personal data to access, modify, or delete on our servers. To remove all locally stored data, uninstall the App from your device.</p>
+<p>Since we do not collect personal data, there is no personal data to access, modify, or delete on our servers. To remove all locally stored data (favorites, recordings, settings, cache), uninstall the App from your device.</p>
 
 <h2>Contact</h2>
 <p><strong>Alex Damián Torres Robalino</strong><br>
@@ -86,29 +112,41 @@ Location: Ecuador</p>
 <hr>
 
 <h1>Política de Privacidad — Byhide</h1>
-<div class="updated">Última actualización: 1 de junio de 2026</div>
+<div class="updated">Última actualización: 21 de junio de 2026</div>
 
 <h2>Introducción</h2>
 <p>Byhide ("nosotros", "nuestro" o "la App") es una aplicación de radio por internet con sonido espacial en el dispositivo, desarrollada por Laboratorios Zorion en Ecuador. Esta Política de Privacidad explica cómo manejamos la información relacionada con tu uso de la App.</p>
 
 <div class="summary">
-<strong>Byhide no recopila, almacena ni transmite ningún dato personal.</strong> La App no tiene servidores propios, ni analítica, ni rastreo, ni compartición de datos con terceros.
+<strong>Byhide no recopila, almacena ni transmite ningún dato personal a nuestros propios servidores.</strong> La App no tiene servidores propios, ni analítica, ni rastreo, ni compartición de datos con fines publicitarios.
 </div>
 
 <h2>Información que NO recopilamos</h2>
 <p>No recopilamos, solicitamos ni almacenamos ninguna información personal. No hay cuentas de usuario, ni registro, ni inicio de sesión. No sabemos quién eres.</p>
 
 <h2>Datos almacenados en tu dispositivo</h2>
-<p>La App almacena lo siguiente <strong>únicamente en tu dispositivo</strong>, nunca en un servidor:</p>
+<p>La App almacena lo siguiente <strong>únicamente en tu dispositivo</strong>, nunca en un servidor que nosotros controlemos:</p>
 <ul>
 <li><strong>Favoritos</strong> — las estaciones de radio que marcas como favoritas.</li>
-<li><strong>Grabaciones</strong> — cualquier audio que elijas grabar dentro de la App.</li>
+<li><strong>Grabaciones</strong> — ver "Funcionalidad de grabación" abajo para más detalles.</li>
 <li><strong>Ajustes</strong> — tu modo de escucha, presets y preferencias de audio.</li>
+<li><strong>Caché del catálogo</strong> — un caché temporal de la lista de estaciones disponibles (se refresca semanalmente).</li>
 </ul>
 <p>Esta información permanece en tu dispositivo y se elimina cuando desinstalas la App.</p>
 
+<h2>Funcionalidad de grabación</h2>
+<p>Cuando presionas el botón <strong>RECORD</strong> dentro de la App (función premium), Byhide captura el audio de la estación de radio que estás escuchando en ese momento. El audio capturado se guarda como un archivo WAV en la carpeta <code>Music/Byhide/</code> de tu dispositivo.</p>
+<p>Byhide <strong>NO</strong>:</p>
+<ul>
+<li>Accede al micrófono de tu dispositivo.</li>
+<li>Graba tu voz ni el sonido ambiente.</li>
+<li>Sube ninguna grabación a ningún servidor.</li>
+<li>Comparte grabaciones con terceros.</li>
+</ul>
+<p>Las grabaciones son enteramente tuyas. Viven solo en tu dispositivo hasta que las borres.</p>
+
 <h2>Transmisiones de radio (contenido de terceros)</h2>
-<p>Byhide reproduce estaciones de radio por internet obtenidas a través de una API pública y gratuita de directorio de radios. Cuando reproduces una estación, tu dispositivo se conecta directamente al proveedor de esa transmisión para recibir el audio. Byhide no controla, aloja ni posee estas transmisiones.</p>
+<p>Byhide reproduce estaciones de radio por internet obtenidas a través de APIs públicas y gratuitas de directorios de radio. Cuando reproduces una estación, tu dispositivo se conecta directamente al proveedor de esa transmisión para recibir el audio. Byhide no controla, aloja ni posee estas transmisiones.</p>
 <p>No enviamos ninguna información personal a estos proveedores. Tu dispositivo simplemente solicita la transmisión de audio, como lo haría cualquier reproductor de radio por internet. La disponibilidad y el contenido de cada estación son gestionados por las respectivas emisoras, no por Byhide.</p>
 
 <h2>Compras dentro de la App</h2>
@@ -123,27 +161,40 @@ Location: Ecuador</p>
 <p>Para detalles sobre cómo Google maneja los datos de pago, consulta la <a href="https://policies.google.com/privacy">Política de Privacidad de Google</a>.</p>
 
 <h2>Permisos</h2>
-<p>La App solicita el permiso de <code>INTERNET</code> para transmitir estaciones de radio, y el permiso de <code>BILLING</code> para procesar la compra premium opcional a través de Google Play. La App no solicita acceso a tus contactos, ubicación, cámara, micrófono (más allá de tu acción explícita de grabar) ni a ningún otro dato personal.</p>
+<p>Byhide solicita los siguientes permisos de Android para su funcionalidad legítima:</p>
+<ul>
+<li><code>INTERNET</code> y <code>ACCESS_NETWORK_STATE</code> — para transmitir estaciones de radio y detectar la conectividad.</li>
+<li><code>FOREGROUND_SERVICE</code> y <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> — para reproducir audio en segundo plano de forma confiable.</li>
+<li><code>WAKE_LOCK</code> — para mantener la radio reproduciendo cuando la pantalla está apagada.</li>
+<li><code>POST_NOTIFICATIONS</code> (Android 13+) — para mostrar los controles de reproducción en la barra de notificaciones.</li>
+<li><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code> — opcional, para evitar que el sistema interrumpa la reproducción.</li>
+<li><code>WRITE_EXTERNAL_STORAGE</code> (solo Android 9 y anteriores) — para guardar las grabaciones en la carpeta de Música.</li>
+<li>Google Play Billing — para la compra premium opcional.</li>
+</ul>
+<p>Byhide <strong>NO</strong> solicita acceso a tu micrófono, contactos, ubicación precisa, cámara, fotos, SMS, registro de llamadas ni a ningún otro dato personal.</p>
 
 <h2>Privacidad de menores</h2>
 <p>La App no está dirigida específicamente a menores de 13 años. No recopilamos a sabiendas ningún dato de ningún usuario, incluidos menores. Como se indica, no recopilamos ninguna información en absoluto.</p>
 
 <h2>Servicios de terceros</h2>
-<p>Byhide integra únicamente los siguientes servicios de terceros:</p>
+<p>Byhide se conecta a los siguientes servicios de terceros para su funcionalidad principal:</p>
 <ul>
-<li><strong>Una API pública y gratuita de directorio de radios</strong> — para proveer la lista de estaciones disponibles.</li>
+<li><strong>Radio Browser API</strong> (<code>radio-browser.info</code>) — directorio público y gratuito de estaciones de radio. Tu dispositivo envía consultas genéricas (género, país, nombre de estación) para obtener el catálogo de estaciones. No se incluye información personal en estas solicitudes.</li>
+<li><strong>Icecast Directory</strong> (<code>dir.xiph.org</code>) — directorio público usado para complementar el catálogo con estaciones adicionales.</li>
+<li><strong>Geolocalización por IP</strong> (<code>ip-api.com</code>) — usado <em>una vez por semana</em> al iniciar la App para detectar <strong>únicamente tu país</strong> (no tu ubicación precisa) para mostrarte estaciones de radio locales. Tu dirección IP se envía a este servicio para realizar la consulta, pero Byhide <strong>NO</strong> almacena, registra ni transmite tu dirección IP a ningún otro tercero. Para detalles, consulta la <a href="https://ip-api.com/docs/legal">política de privacidad de ip-api.com</a>.</li>
+<li><strong>Conexión directa al proveedor de stream de cada estación de radio</strong> — cuando eliges reproducir una estación, tu dispositivo se conecta directamente al servidor de esa emisora. Byhide actúa solo como reproductor. Cada emisora tiene sus propias prácticas de privacidad, sobre las cuales no tenemos control.</li>
 <li><strong>Google Play Billing</strong> — para procesar la compra premium opcional. Consulta la <a href="https://policies.google.com/privacy">Política de Privacidad de Google</a>.</li>
 </ul>
-<p>No hay servicios de analítica (Google Analytics, Firebase, Mixpanel, etc.), ni reportes de fallos (Crashlytics, Sentry, etc.), ni redes de publicidad.</p>
+<p>Byhide <strong>NO</strong> integra ningún servicio de analítica (Google Analytics, Firebase, Mixpanel, etc.), ni reportes de fallos (Crashlytics, Sentry, etc.), ni redes de publicidad.</p>
 
 <h2>Seguridad de los datos</h2>
-<p>Dado que no recopilamos ni transmitimos ningún dato personal, no hay datos que proteger de nuestro lado. Los datos locales almacenados en tu dispositivo están protegidos por los mecanismos de seguridad estándar de tu dispositivo.</p>
+<p>Dado que no recopilamos ni transmitimos ningún dato personal a nuestros propios servidores, no hay datos que proteger de nuestro lado. Los datos locales almacenados en tu dispositivo están protegidos por los mecanismos de seguridad estándar de tu dispositivo.</p>
 
 <h2>Cambios a esta Política</h2>
 <p>Podemos actualizar esta Política de Privacidad ocasionalmente. Los cambios se reflejarán en la fecha de "Última actualización" en la parte superior de este documento. Los cambios significativos se comunicarán a través de actualizaciones de la App.</p>
 
 <h2>Tus derechos</h2>
-<p>Dado que no recopilamos datos personales, no hay datos personales que acceder, modificar o eliminar en nuestros servidores. Para eliminar todos los datos almacenados localmente, desinstala la App de tu dispositivo.</p>
+<p>Dado que no recopilamos datos personales, no hay datos personales que acceder, modificar o eliminar en nuestros servidores. Para eliminar todos los datos almacenados localmente (favoritos, grabaciones, ajustes, caché), desinstala la App de tu dispositivo.</p>
 
 <h2>Contacto</h2>
 <p><strong>Alex Damián Torres Robalino</strong><br>
